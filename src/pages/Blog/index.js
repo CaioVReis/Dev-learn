@@ -10,7 +10,7 @@ const Blog = () =>(
   
         
      <div class="column">
-     <CardBlod  img="https://og-image.vercel.app/Hello%20World.png" description="Img" header="Aulas"/>
+     <CardBlod  img="https://og-image.vercel.app/Hello%20World.png" description="Img" header="Aulas "/>
      </div>
      
      <div class="column">

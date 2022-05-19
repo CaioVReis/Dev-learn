@@ -4,6 +4,7 @@ import {Nav,Link} from './components/Nav';
 import { LinkButton } from './components/buttons';
 import Footer from './components/footer';
 import Blog from './pages/Blog'
+import Contato from './pages/Contato';
 
 const App = ()=>(
 <>
@@ -30,7 +31,7 @@ const App = ()=>(
 
   </Nav>
   
- <Blog/>
+ <Contato/>
     
 
 <Footer/>
