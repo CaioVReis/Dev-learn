@@ -1,15 +1,19 @@
 import { useState }  from "react"
-import { LinkButton } from "../../components/buttons";
+import { InfoButton, Button , LinkButton } from "../../components/buttons";
 import InputText from "../../components/form/input";
-const Contato = ()=>{ 
+import Select from "../../components/form/select";
+import TextArea from "../../components/form/textarea";
+const Contact = ()=>{ 
 
     const [form, setForm] = useState({
         name: "",
-        email: ""
+        email: "",
+        message:"",
     })
 
 
     const setValue = (field,e) => setForm({...form, [field] : e.target.value})
+    const send = ()=> console.log("data",JSON.stringify(form))
     
     /*
     function setValue(field, e){
@@ -31,26 +35,11 @@ const Contato = ()=>{
                    <InputText name="email" label="Email" value={form.email} placeholder="Digite seu E-mail" error={form.email.split("@").length <= 1 } onInput={(e) => setValue("email",e) } /> 
         
 
-                       <div class="field">
-                       <label class="label">Assunto</label>
-                       <div class="control">
-                           <div class="select is-fullwidth">
-                               <select name="Assunto" onChange={(e) => console.log(e.target.value)}>
-                               <option value="Reportar Erro">Reportar Erro</option>
-                               <option value="Outro">Outro</option>
-                               </select>
-                           </div>
-                       </div>
-                   </div> 
+                       <Select label='Contato' name='contact' options={['reportar erro','trabalhe conosco']} onChange={(e) => setValue('contact',e) }/>
 
-                   <div class="field">
-                       <label class="label">Mensagem *</label>
-                       <div class="control">
-                           <textarea name="mensagem" class="textarea" placeholder="Deixe sua mensagem" maxLength={1000}></textarea>
-                       </div>
-                   </div>
+                   <TextArea name="message" label="Mensagem" value={form.message} placeholder="Digite Sua Duvida" error={form.message.length <= 10 } onInput={(e) => setValue("message",e) } />
 
-                   <LinkButton label="Enviar" rounded={true}/>
+                   <LinkButton label="Enviar" rounded={true} onClick={send}/>
                </div>
            </div>
        </div>
@@ -59,6 +48,6 @@ const Contato = ()=>{
    
 )}
 
-export default Contato;
+export default Contact;
     
 
