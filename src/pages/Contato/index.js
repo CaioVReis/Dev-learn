@@ -1,7 +1,24 @@
-
+import { useState }  from "react"
 import { LinkButton } from "../../components/buttons";
+import InputText from "../../components/form/input";
+const Contato = ()=>{ 
 
-const Contato = ()=>(
+    const [form, setForm] = useState({
+        name: "",
+        email: ""
+    })
+
+
+    const setValue = (field,e) => setForm({...form, [field] : e.target.value})
+    
+    /*
+    function setValue(field, e){
+        setForm({...form, [field] : e.target.value})
+    }
+    */ 
+
+
+    return (
     <>
    <section class="section">
        <div class="container">
@@ -9,26 +26,19 @@ const Contato = ()=>(
                <div class="column is-half">
                    <h1 class="title ">Alguma Duvida?</h1>
                    <h2 class="subtitle ">Entre Em contato!</h2>
-                   <div class="field">
-                       <label class="label">Nome</label>
-                       <div class="control">
-                           <input name="nome" class="input" type="text" placeholder="Nome"></input>
-                       </div>
-                   </div>
-                   <div class="field">
-                       <label class="label">Gmail</label>
-                       <div class="control">
-                           <input name="nome" class="input" type="text" placeholder="Gmail"></input>
-                       </div>
-                   </div>
-                   
-                   <div class="field">
+        
+                   <InputText name="nome" label="Nome" value={form.name} placeholder="Digite seu nome" error={form.name.length <= 3 } onInput={(e) => setValue("name",e) } /> 
+                 
+                   <InputText name="email" label="Email" value={form.email} placeholder="Digite seu E-mail" error={form.email.split("@").length <= 1 } onInput={(e) => setValue("email",e) } /> 
+        
+
+                       <div class="field">
                        <label class="label">Assunto</label>
                        <div class="control">
                            <div class="select is-fullwidth">
-                               <select name="Assunto">
-                               <option>Reportar Erro</option>
-                               <option>Outro</option>
+                               <select name="Assunto" onChange={(e) => console.log(e.target.value)}>
+                               <option value="Reportar Erro">Reportar Erro</option>
+                               <option value="Outro">Outro</option>
                                </select>
                            </div>
                        </div>
@@ -48,7 +58,7 @@ const Contato = ()=>(
    </section>
    </>
    
-)
+)}
 
 export default Contato;
     
