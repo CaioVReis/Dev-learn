@@ -5,6 +5,7 @@ import { LinkButton } from './components/buttons';
 import Footer from './components/footer';
 import Blog from './pages/Blog'
 import Contact from './pages/Contact';
+import Home from './pages/Home';
 
 const App = ()=>(
 <>
@@ -31,7 +32,7 @@ const App = ()=>(
 
   </Nav>
   
- <Contact/>
+ <Home/>
     
 
 <Footer/>
