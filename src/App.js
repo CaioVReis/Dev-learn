@@ -32,7 +32,7 @@ const App = ()=>(
 
   </Nav>
   
- <Home/>
+ <Blog/>
     
 
 <Footer/>
